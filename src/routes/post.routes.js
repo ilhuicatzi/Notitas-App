@@ -1,25 +1,17 @@
-import { Router } from "express";
+import Router from "express-promise-router";
+import { getPosts, getPost, createPost, updatePost, deletePost } from "../controllers/posts.controller.js";
+import { verifyToken } from "../middlewares/auth.middleware.js";
 
 const router = Router();
 
-router.get("/posts", (req, res) => {
-  res.json({ message: "GET all posts" });
-});
+router.get("/posts", verifyToken, getPosts);
 
-router.get("/posts/:id", (req, res) => {
-  res.json({ message: `GET post with id ${req.params.id}` });
-});
+router.get("/posts/:id", verifyToken, getPost);
 
-router.post("/posts", (req, res) => {
-  res.json({ message: "POST a new post" });
-});
+router.post("/posts", verifyToken, createPost);
 
-router.put("/posts/:id", (req, res) => {
-  res.json({ message: `PUT post with id ${req.params.id}` });
-});
+router.put("/posts/:id", verifyToken, updatePost);
 
-router.delete("/posts/:id", (req, res) => {
-  res.json({ message: `DELETE post with id ${req.params.id}` });
-});
+router.delete("/posts/:id",verifyToken,  deletePost);
 
 export default router;

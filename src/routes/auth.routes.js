@@ -1,29 +1,19 @@
-import { Router } from "express";
+import Router from "express-promise-router";
+import { signIn, signUp, signOut, getProfile, updateProfile } from "../controllers/auth.controller.js";
+import { verifyToken } from "../middlewares/auth.middleware.js";
 
 const router = Router();
 
-router.post("/signup", (req, res) => {
-  res.json({ message: "POST signup" });
-});
+router.post("/signup", signUp);
 
-router.post("/signin", (req, res) => {
-  res.json({ message: "POST signin" });
-});
+router.post("/signin", signIn);
 
-router.post("/signout", (req, res) => {
-  res.json({ message: "POST signout" });
-});
+router.post("/signout", signOut);
 
-router.get("/profile", (req, res) => {
-  res.json({ message: "GET profile" });
-});
+router.get("/profile",verifyToken, getProfile);
 
-router.put("/profile", (req, res) => {
-  res.json({ message: "PUT profile" });
-});
+router.put("/profile", verifyToken, updateProfile);
 
-router.delete("/profile", (req, res) => {
-  res.json({ message: "DELETE profile" });
-});
+//router.delete("/profile", deleteProfile);
 
 export default router;
