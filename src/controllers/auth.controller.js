@@ -15,7 +15,8 @@ export const signUp = async (req, res, next) => {
     const token = await createToken({ id: response.rows[0].id }); // aqui se crea el token
 
     res.cookie("token", token, {
-      httpOnly: true,
+      //httpOnly: true,
+      secure: true,
       //secure: process.env.NODE_ENV === "production",
       sameSite: "none",
       maxAge: 1000 * 60 * 60, // 1 hour
@@ -38,7 +39,7 @@ export const signIn = async (req, res, next) => {
     [email]
   );
   if (response.rows.length === 0) {
-    return res.status(400).json({ message: "Usuario no encontrado" });
+    return res.status(400).json({ message: "El email no existe" });
   }
   const user = response.rows[0];
   const isMatch = await bcrypt.compare(password, user.password);
@@ -49,8 +50,8 @@ export const signIn = async (req, res, next) => {
   const token = await createToken({ id: user.id });
 
   res.cookie("token", token, {
-    httpOnly: true,
-    //secure: process.env.NODE_ENV === "production",
+    //httpOnly: true,
+    secure: true,
     sameSite: "none",
     maxAge: 1000 * 60 * 60, // 1 hour
   });

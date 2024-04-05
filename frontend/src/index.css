@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Shantell Sans Variable', system-ui;
+  @apply bg-zinc-100 dark:bg-zinc-950 text-zinc-950 dark:text-zinc-100 ;
+}

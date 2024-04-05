@@ -20,7 +20,7 @@ export const createPost = async (req, res, next) => {
   const user_id = req.userId;
   try {
     const response = await pool.query(
-      "INSERT INTO zao_notas (titulo, contenido, tags, color, user_id) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+      "INSERT INTO zao_notas (titulo, contenido, tags, color, usuario_id) VALUES ($1, $2, $3, $4, $5) RETURNING *",
       [titulo, contenido, tags, color, user_id]
     );
   res.json(response.rows[0])
