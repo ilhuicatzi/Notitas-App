@@ -20,6 +20,7 @@ type PostContentTypes = {
   getPost: (id: number) => Promise<Post>;
   createPosts: (data: FormData) => void;
   updatePosts: (id: number, data: FormData) => void;
+  getNewUser: (id: number) => Promise<Post>;
 }
 
 const initialState: PostContentTypes = {
@@ -31,6 +32,7 @@ const initialState: PostContentTypes = {
   getPost: () => Promise.resolve({} as Post),
   createPosts: () => null,
   updatePosts: () => null,
+  getNewUser: () => Promise.resolve({} as Post),
 };
 
 type FormData = {
@@ -93,6 +95,12 @@ export const PostsProvider = ({ children}: PostsProviderProps) => {
   });
   }
 
+  const getNewUser = async (id: number):Promise<Post>=> {
+    const post = await getPostById(id);
+    return new Promise((resolve) => {
+      resolve(post);
+  });
+  }
 
   const variableContexPosts = {
     posts,
@@ -103,6 +111,7 @@ export const PostsProvider = ({ children}: PostsProviderProps) => {
     getPost,
     createPosts,
     updatePosts,
+    getNewUser
   };
 
   return (

@@ -6,4 +6,4 @@ export const PG_USER = process.env.PG_USER || "postgres";
 export const PG_PASSWORD = process.env.PG_PASSWORD || "ilhuicatzi.root";
 export const PG_DATABASE = process.env.PG_DATABASE || "perndb";
 
-export const CORS_ORIGIN = process.env.CORS_ORIGIN || "http://localhost:3000";
+export const CORS_ORIGIN = process.env.CORS_ORIGIN || "http://localhost:5173";

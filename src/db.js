@@ -1,14 +1,20 @@
-import pg from 'pg';
-import {PG_DATABASE,PG_HOST,PG_PASSWORD,PG_PORT,PG_USER} from "./config.js";
+import pg from "pg";
+import 'dotenv/config'
+
+let { PGHOST, PGDATABASE, PGUSER, PGPASSWORD, ENDPOINT_ID } = process.env;
 
 export const pool = new pg.Pool({
-    port: PG_PORT,
-    host: PG_HOST,
-    user: PG_USER,
-    password: PG_PASSWORD,
-    database: PG_DATABASE
+  host: PGHOST,
+  database: PGDATABASE,
+  username: PGUSER,
+  password: PGPASSWORD,
+  port: 5432,
+  ssl: "require",
+  connection: {
+    options: `project=${ENDPOINT_ID}`,
+  },
 });
 
-pool.on('connect', () => {
-    console.log('connected to the db: perndb');
+pool.on("connect", () => {
+  console.log("connected to the db: perndb");
 });

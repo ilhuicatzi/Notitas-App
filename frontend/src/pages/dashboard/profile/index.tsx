@@ -9,7 +9,7 @@ type UserData = {
 } | null;
 
 function ProfilePage() {
-  const { posts } = usePosts()
+  const { posts,  } = usePosts()
   const { user } = useAuth()
   
   const data = user as UserData
