@@ -22,8 +22,8 @@ app.get("/", (req, res) => {
   res.json({  message: "Welcome to my API Z@o_Notas" });
 });
 
-app.use("/api/auth", authRoutes);
-app.use("/api/user", postsRoutes);
+app.use("/api", authRoutes);
+app.use("/api", postsRoutes);
 
 app.use((err, req, res, next) => {
   res.status(500).json({

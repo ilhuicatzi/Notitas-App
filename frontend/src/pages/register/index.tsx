@@ -96,7 +96,7 @@ function RegisterPage() {
             <div>
             <button className="bg-yellow-400 group-hover:opacity-100 opacity-35 px-6 py-1 rounded-md text-zinc-900 hover:text-white hover:bg-yellow-500">Sign In</button>
             </div>
-            <p className="text-xs mt-8 text-end">
+            <p className="text-xs mt-8 text-starts">
               Already have an account?{" "}
               <a href="/login" className="text-yellow-400 hover:text-yellow-500">
                 Sign In

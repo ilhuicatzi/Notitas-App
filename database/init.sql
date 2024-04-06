@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS zao_notas (
 );
 
 ALTER TABLE zao_notas ADD COLUMN usuario_id INTEGER REFERENCES zao_usuarios(id);
+ALTER TABLE zao_notas ADD COLUMN badge VARCHAR(50);
 
 CREATE TABLE IF NOT EXISTS zao_usuarios (
   id SERIAL PRIMARY KEY,

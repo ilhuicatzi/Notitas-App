@@ -84,7 +84,7 @@ function LoginPage() {
                 Sign In
               </button>
             </div>
-            <p className="text-xs mt-8 text-end">
+            <p className="text-xs mt-8 text-start">
               Don't have an account?{" "}
               <a
                 href="/register"

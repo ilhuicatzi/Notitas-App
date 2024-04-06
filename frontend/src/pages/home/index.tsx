@@ -1,6 +1,8 @@
 import { TbCircleArrowRight } from "react-icons/tb";
+import { useNavigate } from "react-router-dom";
 
 function HomePage() {
+  const navigate = useNavigate();
   return (
     <section className="m-5 md:m-10 flex flex-col items-center justify-center">
       <div className="flex justify-end w-full max-[510px]:hidden lg:w-[880px] ">
@@ -23,7 +25,9 @@ function HomePage() {
               Tus notas siempre contigo, en cualquier lugar y en cualquier momento.
             </p>
             <div className="md:mt-10 lg:mt-20">
-              <button className="bg-yellow-600 hover:bg-yellow-700 dark:bg-yellow-600 dark:hover:bg-yellow-500 text-white px-4 py-2 rounded-lg mt-5 flex  justify-between items-center gap-2">
+              <button
+                onClick={() => navigate("/login")} 
+              className="bg-yellow-600 hover:bg-yellow-700 dark:bg-yellow-600 dark:hover:bg-yellow-500 text-white px-4 py-2 rounded-lg mt-5 flex  justify-between items-center gap-2">
                 <span>Comenzar ahora</span> <TbCircleArrowRight className="w-6 h-6" />
               </button>
             </div>

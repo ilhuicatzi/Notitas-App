@@ -9,11 +9,11 @@ function ButtonDarkMode() {
   const toggleTheme = () => {
     setIsDark(!isDark)
     setTheme(isDark ? "light" : "dark")
-    console.log(isDark);
+   // console.log(isDark);
   }
 
   return (
-    <button onClick={toggleTheme} className="rounded-full p-1 hover:bg-zinc-200 dark:hover:bg-zinc-800">
+    <button onClick={toggleTheme} className="rounded-full p-2 text-lg hover:bg-zinc-200 dark:hover:bg-zinc-800">
       {isDark ? <FaSun /> : <FaMoon />}
     </button>
   )

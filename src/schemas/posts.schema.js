@@ -14,6 +14,7 @@ export const postCreateSchema = z.object({
   }).max(500).optional(),
   tags: z.string().max(50).optional(),
   color: z.string().max(20).optional(),
+  badge: z.string().max(20).optional(),
 });
 
 export const postUpdateSchema = z.object({
@@ -30,4 +31,5 @@ export const postUpdateSchema = z.object({
   }).max(500).optional(),
   tags: z.string().max(50).optional(),
   color: z.string().max(20).optional(),
+  badge: z.string().max(20).optional(),
 });
